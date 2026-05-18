@@ -99,10 +99,11 @@ jupyter notebook
 ```
 ## Project Structure
 
+```text
 nz-housing-cycle-analysis/
 ├── data/
-│   ├── raw/                 (ignored, download manually)
-│   └── processed/           (cleaned CSV)
+│   ├── raw/ (ignored, download manually)
+│   └── processed/ (cleaned CSV)
 ├── notebooks/
 │   ├── 01_fetch_data.ipynb
 │   ├── 02_clean_align.ipynb
@@ -112,15 +113,16 @@ nz-housing-cycle-analysis/
 │   ├── features.py
 │   └── models.py
 ├── outputs/
-│   └── charts/              (PNG files for LinkedIn & portfolio)
+│   └── charts/ (PNG files for LinkedIn & portfolio)
 ├── dashboard/
-│   └── README.md            (Tableau Public link + screenshot)
+│   └── README.md (Tableau Public link + screenshot)
 ├── architecture/
 │   └── pipeline.png
-├── screenshots/             (dashboard previews)
+├── screenshots/ (dashboard previews)
 ├── .gitignore
 ├── requirements.txt
 └── README.md
+```
 
 
 ## Author & Use Case
