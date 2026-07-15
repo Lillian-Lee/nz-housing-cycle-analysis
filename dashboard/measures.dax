@@ -1,0 +1,59 @@
+// Create these measures in Power BI after loading data/processed/powerbi/*.csv.
+
+Latest HPI =
+VAR LatestVisibleDate = MAX(dim_date[date])
+VAR LatestHPIDate =
+    CALCULATE(
+        MAX(fact_national_quarterly[date]),
+        REMOVEFILTERS(dim_date),
+        fact_national_quarterly[date] <= LatestVisibleDate
+    )
+RETURN
+    CALCULATE(
+        MAX(fact_national_quarterly[house_price_index]),
+        REMOVEFILTERS(dim_date),
+        fact_national_quarterly[date] = LatestHPIDate
+    )
+
+HPI YoY % =
+VAR CurrentHPI = MAX(fact_national_quarterly[house_price_index])
+VAR PriorHPI =
+    CALCULATE(
+        MAX(fact_national_quarterly[house_price_index]),
+        DATEADD(dim_date[date], -1, YEAR)
+    )
+RETURN DIVIDE(CurrentHPI - PriorHPI, PriorHPI)
+
+Latest OCR % =
+VAR LatestVisibleDate = MAX(dim_date[date])
+VAR LatestOCRDate =
+    CALCULATE(
+        MAX(fact_ocr_monthly[date]),
+        REMOVEFILTERS(dim_date),
+        fact_ocr_monthly[date] <= LatestVisibleDate
+    )
+RETURN
+    CALCULATE(
+        MAX(fact_ocr_monthly[ocr_rate_pct]),
+        REMOVEFILTERS(dim_date),
+        fact_ocr_monthly[date] = LatestOCRDate
+    )
+
+House Sales = SUM(fact_national_quarterly[house_sales_count])
+
+Sales YoY % =
+VAR CurrentSales = [House Sales]
+VAR PriorSales = CALCULATE([House Sales], DATEADD(dim_date[date], -1, YEAR))
+RETURN DIVIDE(CurrentSales - PriorSales, PriorSales)
+
+New Dwellings Consented =
+SUM(fact_regional_consents_annual[new_dwellings_consented])
+
+Consents per 1,000 =
+AVERAGE(fact_regional_consents_annual[consents_per_1000_residents])
+
+Consent YoY % =
+VAR CurrentConsents = [New Dwellings Consented]
+VAR PriorConsents =
+    CALCULATE([New Dwellings Consented], DATEADD(dim_date[date], -1, YEAR))
+RETURN DIVIDE(CurrentConsents - PriorConsents, PriorConsents)

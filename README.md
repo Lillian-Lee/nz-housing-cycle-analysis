@@ -21,7 +21,7 @@
 
 | Source | Dataset | Link |
 |--------|---------|------|
-| RBNZ | M10 Housing (regional median price, sales) | [RBNZ M10](https://www.rbnz.govt.nz/statistics/m10) |
+| RBNZ | M10 Housing (national quarterly HPI, sales, stock value, investment) | [RBNZ M10](https://www.rbnz.govt.nz/statistics/series/economic-indicators/housing) |
 | RBNZ | OCR historical (monthly) | [RBNZ OCR](https://www.rbnz.govt.nz/monetary-policy/official-cash-rate) |
 | Stats NZ | Building Consents (monthly, by region) | [Stats NZ CSV](https://www.stats.govt.nz/large-datasets/csv-files-for-download/) |
 | Stats NZ | Regional population & migration (annual) | [Stats NZ Population](https://www.stats.govt.nz/topics/population) |
@@ -51,6 +51,10 @@
 ---
 
 ## Analytics Pipeline
+
+### Project implementation (this repo)
+![Pipeline](architecture/Pinpeline.png)
+
 Public Economic Data (RBNZ + Stats NZ)
 ↓
 Python ETL (pandas)
@@ -61,18 +65,24 @@ Feature Engineering (lags, rolling averages, regional dummies)
 ↓
 Statistical Analysis (statsmodels: OLS with lagged variables, event study)
 ↓
-Tableau Public Semantic Model
+Power BI star model (CSV facts + dimensions)
 ↓
 Interactive Dashboard (3 pages)
 ↓
 Business Interpretation & Policy Insights
 
 
-**Pipeline diagram:** see `architecture/pipeline.png` (drawn with draw.io).
+### Reference: generic analytics lifecycle (context only)
+![Lifecycle](architecture/architecture/analytics-lifecycle.jpeg)
+*Illustrative industry framework; this project implements the subset described above.*
 
 ---
 
 ## Key Insights (Executive Summary)
+
+> **Validation status:** the legacy bullets below are storytelling placeholders and must not
+> be quoted as findings. The verified pipeline currently supports national quarterly housing
+> analysis and regional building-consent comparisons; it does not contain regional prices.
 
 *To be updated after analysis – placeholder structure:*
 
@@ -84,6 +94,17 @@ Business Interpretation & Policy Insights
 ---
 
 ## Reproducibility
+
+Run the automated pipeline from the repository root:
+
+```bash
+pip install -r requirements.txt
+python run_pipeline.py
+```
+
+Power BI-ready facts, dimensions, model metadata, regression outputs, and a refresh summary
+are written to `data/processed/powerbi/`. See `dashboard/README.md` for relationships, DAX,
+theme, page layouts, and scope limitations.
 
 Run the notebooks **in order**:
 

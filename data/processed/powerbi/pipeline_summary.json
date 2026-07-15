@@ -1,0 +1,9 @@
+{
+  "latest_housing_date": "2025-12-31",
+  "latest_hpi": 3389.0,
+  "latest_hpi_yoy_pct": -0.73,
+  "latest_ocr_pct": 2.25,
+  "quarterly_rows": 64,
+  "regional_consent_rows": 48,
+  "regression_models": 4
+}

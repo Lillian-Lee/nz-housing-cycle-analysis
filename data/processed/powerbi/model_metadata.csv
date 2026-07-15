@@ -1,0 +1,4 @@
+﻿table_name,grain,geography,source,limitation
+fact_national_quarterly,quarterly,New Zealand,RBNZ M10,National only; not regional median prices
+fact_ocr_monthly,monthly,New Zealand,RBNZ OCR decisions,Month-end policy rate expanded from decision dates
+fact_regional_consents_annual,annual,16 regions,Stats NZ,Consents lead completed construction; annual release table

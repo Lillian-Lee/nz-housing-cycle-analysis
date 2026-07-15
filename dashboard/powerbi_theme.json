@@ -1,0 +1,7 @@
+{
+  "name": "NZ Housing Cycle",
+  "dataColors": ["#0B5CAD", "#2A9D8F", "#E06B38", "#6C757D", "#8E5EA2"],
+  "background": "#F7F8FA",
+  "foreground": "#1F2933",
+  "tableAccent": "#0B5CAD"
+}
