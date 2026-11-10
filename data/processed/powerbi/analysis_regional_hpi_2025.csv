@@ -1,0 +1,17 @@
+﻿region,hpi_dec_2024,hpi_dec_2025,hpi_change_pct,rank,status
+Southland,1796.0,1903.0,5.957683741648112,1,Comparable
+Marlborough,1447.0,1504.0,3.9391845196959263,2,Comparable
+Otago,1512.0,1565.0,3.5052910052910002,3,Comparable
+Taranaki,1620.0,1655.0,2.1604938271605034,4,Comparable
+Canterbury,1511.0,1536.0,1.6545334215751106,5,Comparable
+Tasman,1350.0,1368.0,1.333333333333342,6,Comparable
+Northland,1426.0,1432.0,0.42075736325386526,7,Comparable
+Waikato,1457.0,1462.0,0.34317089910775866,8,Comparable
+West Coast,1965.0,1970.0,0.2544529262086481,9,Comparable
+Bay of Plenty,1477.0,1474.0,-0.20311442112389555,10,Comparable
+Manawatū-Whanganui,1665.0,1656.0,-0.540540540540535,11,Comparable
+Nelson,1319.0,1308.0,-0.833965125094771,12,Comparable
+Hawke's Bay,1527.0,1509.0,-1.178781925343808,13,Comparable
+Wellington,1310.0,1281.0,-2.2137404580152675,14,Comparable
+Auckland,1169.0,1141.0,-2.39520958083832,15,Comparable
+Gisborne,,1972.0,,,Missing endpoint

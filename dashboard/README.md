@@ -29,9 +29,13 @@ in `measures.dax`.
 ## Scope boundary
 
 - M10 is national and quarterly, not 16-region monthly median prices.
-- The regional page compares building consents only; it cannot claim regional price recovery.
+- The supply page compares building consents. The regional HPI extension supports a separate price growth comparison.
 - Consents are approvals, not completions. Regional migration is not included because no
   validated region-level series is present in the repository.
 - Lagged OLS and event summaries show association, not causal OCR effects.
 
 Refresh by running `python run_pipeline.py`, then choose **Refresh** in Power BI.
+
+## Regional HPI extension
+
+Download the [MCERT Property and Sales Statistics workbook](https://www.hud.govt.nz/stats-and-insights/property-and-sales-statistics/about-the-dashboard) to `data/raw/nz-mcert-hpi.xlsx`, then run `python run_regional_analysis.py`. Import `fact_regional_hpi_monthly.csv` and relate it to the date and region dimensions by `date` and `region`, respectively. Use a regional HPI growth trend and a December 2024 to December 2025 bar chart from `analysis_regional_hpi_2025.csv`. Show unranked regions separately and label this as a year-end change, not a peak-to-trough recovery measure. The regional HPI uses a different source and series from M10. Use separate visuals or compare percentage changes with the sources clearly identified.
